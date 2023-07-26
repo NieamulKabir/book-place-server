@@ -1,0 +1,156 @@
+[
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "genre": "Romance",
+    "description": "This classic novel follows the romantic entanglements of Elizabeth Bennet and Mr. Darcy, set against the backdrop of early 19th-century England",
+    "publication_date": "1813-01-28",
+    "image": "https://i.ibb.co/SvZ5L6v/pride-n-prejudice.jpg",
+    "price": 6.99,
+    "rating": 4.6,
+    "reviews": []
+  },
+  {
+    "title": "Outlander",
+    "author": "Diana Gabaldon",
+    "genre": "Romance",
+    "description": "This historical romance follows the story of Claire Randall, a World War II nurse who time travels to 18th-century Scotland and falls in love with a Scottish warrior.",
+    "publication_date": "1991-06-01",
+    "image": "https://i.ibb.co/GQKk4Zj/Outlander.jpg",
+    "price": 65.74,
+    "rating": 4.4,
+    "reviews": []
+  },
+  {
+    "title": "Me Before You",
+    "author": "Jojo Moyes",
+    "genre": "Romance",
+    "description": "A heartwarming and emotional story of Louisa Clark and Will Traynor, exploring themes of love, loss, and the choices we make in life.",
+    "publication_date": "2012-01-05",
+    "image": "https://i.ibb.co/GsBz1KQ/Me-Before-You-by-Jojo-Moyes-nuriakenya.jpg",
+    "price": 15.44,
+    "rating": 4.7,
+    "reviews": []
+  },
+  {
+    "title": "And Then There Were None",
+    "author": "Agatha Christie",
+    "genre": "Mystery",
+    "description": "This iconic mystery novel follows ten strangers trapped on an isolated island, where they start dying one by one.",
+    "publication_date": "1939-11-06",
+    "image": "https://i.ibb.co/rbj42V9/And-Then-There-Were-None.jpg",
+    "price": 8.99,
+    "rating": 4.4,
+    "reviews": []
+  },
+  {
+    "title": "Gone Girl",
+    "author": " Gillian Flynn",
+    "genre": "Mystery",
+    "description": "A gripping psychological thriller about the disappearance of Amy Dunne and the suspicions that fall on her husband, Nick.",
+    "publication_date": "2012-01-01",
+    "image": "https://i.ibb.co/cwF3vmG/gone-girl.jpg",
+    "price": 12.9,
+    "rating": 4.1,
+    "reviews": []
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "genre": "Fantasy",
+    "description": "A high-fantasy epic that follows the quest to destroy the One Ring, set in the enchanting world of Middle-earth.",
+    "publication_date": "1954-07-29",
+    "image": "https://i.ibb.co/kJmMb2j/The-Lord-of-the-Rings.jpg",
+    "price": 19.29,
+    "rating": 4.8,
+    "reviews": []
+  },
+  {
+    "title": "Harry Potter",
+    "author": "J.K. Rowling",
+    "genre": "Fantasy",
+    "description": "A beloved fantasy series that chronicles the magical journey of a young wizard, Harry Potter, as he battles the dark wizard, Lord Voldemort.",
+    "publication_date": "2007-06-21",
+    "image": "https://i.ibb.co/0BMJh8s/Harry-Potter.jpg",
+    "price": 45.44,
+    "rating": 4.9,
+    "reviews": []
+  },
+  {
+    "title": "The Wheel of Time",
+    "author": "Robert Jordan",
+    "genre": "Fantasy",
+    "description": " An extensive epic fantasy series featuring a richly detailed world and an array of compelling characters.",
+    "publication_date": "2013-01-08",
+    "image": "https://i.ibb.co/0hV31Gq/The-Wheel-of-Time.jpg",
+    "price": 25.97,
+    "rating": 4.5,
+    "reviews": []
+  },
+  {
+    "title": "The Silent Patient",
+    "author": " Alex Michaelides",
+    "genre": "Thrillers",
+    "description": "A psychological thriller centered around Alicia Berenson, a famous painter who hasn't spoken since she was found standing next to her husband's dead body.",
+    "publication_date": "2019-02-05",
+    "image": "https://i.ibb.co/xsxwt9D/The-Silent-Patient.jpg",
+    "price": 14.35,
+    "rating": 4.4,
+    "reviews": []
+  },
+  {
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "genre": "Biography",
+    "description": "A comprehensive biography of the co-founder of Apple Inc., exploring Jobs' visionary ideas and complex personality.",
+    "publication_date": "2011-10-24",
+    "image": "https://i.ibb.co/qspV1bs/Steve-Jobs.jpg",
+    "price": 10.95,
+    "rating": 4.1,
+    "reviews": []
+  },
+  {
+    "title": "Alexander Hamilton",
+    "author": "Ron Chernow",
+    "genre": "Biography",
+    "description": "This biography explores the life of Alexander Hamilton, a Founding Father of the United States and an influential figure in the country's early history.",
+    "publication_date": "2011-10-24",
+    "image": "https://i.ibb.co/Rh63HXL/Alexander-Hamilton.jpg",
+    "price": 10.95,
+    "rating": 4.1,
+    "reviews": []
+  },
+  {
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "genre": "Horror",
+    "description": "A gothic horror novel that introduced the iconic vampire Count Dracula and set the standard for vampire lore in popular culture.",
+    "publication_date": "1897-05-26",
+    "image": "https://i.ibb.co/mt8dYNY/Dracula.jpg",
+    "price": 12.74,
+    "rating": 4.5,
+    "reviews": []
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Fiction",
+    "description": "A powerful and timeless novel that addresses themes of racial injustice and moral growth through the eyes of young Scout Finch.",
+    "publication_date": "1960-07-11",
+    "image": "https://i.ibb.co/zs6Mp5w/To-Kill-a-Mockingbird.jpg",
+    "price": 11.49,
+    "rating": 4.7,
+    "reviews": []
+  },
+  {
+    "title": "Thinking,Fast and Slow",
+    "author": "Daniel Kahneman",
+    "genre": "Non-Fiction",
+    "description": "Nobel laureate Daniel Kahneman presents the workings of the mind and the two systems that drive the way we think.",
+    "publication_date": "2011-10-25",
+    "image": "https://i.ibb.co/tCJcjRT/thinkingfastandslow.jpg",
+    "price": 11.29,
+    "rating": 4.6,
+    "reviews": []
+  }
+]
