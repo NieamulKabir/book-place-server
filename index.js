@@ -9,8 +9,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.9sbaw.mongodb.net/?retryWrites=true&w=majority`
-
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.9sbaw.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -18,21 +17,32 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-
 const run = async () => {
   try {
     const db = client.db("book-place");
     const bookCollection = db.collection("books");
     const userCollection = db.collection("users");
 
-    app.get("/books", async(req,res)=>{
-      const books= bookCollection.find({});
-      const allBooks= await books.toArray();
+    app.get("/books", async (req, res) => {
+      const books = bookCollection.find({});
+      const allBooks = await books.toArray();
 
-      res.send({ status: true, data: allBooks });
-    })
+      res.send({
+        status: true,
+        data: allBooks,
+      });
+    });
 
+    app.get("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await bookCollection.findOne(query);
 
+      res.send({
+        status: true,
+        data: result,
+      });
+    });
   } finally {
   }
 };

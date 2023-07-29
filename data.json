@@ -8,7 +8,13 @@
     "image": "https://i.ibb.co/SvZ5L6v/pride-n-prejudice.jpg",
     "price": 6.99,
     "rating": 4.6,
-    "reviews": []
+    "reviews": [
+      {
+          "reviewer": "",
+          "rating":  4.6,
+          "comment": ""
+      }
+    ]
   },
   {
     "title": "Outlander",
