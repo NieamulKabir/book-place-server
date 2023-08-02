@@ -23,6 +23,7 @@ const run = async () => {
     const bookCollection = db.collection("books");
     const userCollection = db.collection("users");
 
+    //books
     app.get("/books", async (req, res) => {
       const books = bookCollection.find({});
       const allBooks = await books.toArray();
@@ -42,6 +43,23 @@ const run = async () => {
         status: true,
         data: result,
       });
+    });
+
+    //user
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+
+      const result = await userCollection.insertOne(user);
+
+      res.send({
+        status: true,
+        data: result,
+      });
+    });
+    app.get("/users", async (req, res) => {
+      const cursor = userCollection.find({});
+      const result = await cursor.toArray();
+      res.send({ status: true, data: result });
     });
   } finally {
   }
