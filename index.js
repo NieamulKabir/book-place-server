@@ -22,6 +22,7 @@ const run = async () => {
     const db = client.db("book-place");
     const bookCollection = db.collection("books");
     const userCollection = db.collection("users");
+    const wishlistCollection = db.collection("wishlists");
 
     //books
     app.get("/books", async (req, res) => {
@@ -60,6 +61,53 @@ const run = async () => {
       const cursor = userCollection.find({});
       const result = await cursor.toArray();
       res.send({ status: true, data: result });
+    });
+
+    //wishlist
+    // app.post("/addWishList", async (req, res) => {
+    //   const userId = req.body;
+    //   const bookId = req.body;
+
+    //   const userQuery = await userCollection.findOne({
+    //     _id: new ObjectId(userId),
+    //   });
+    //   const bookQuery = await bookCollection.findOne({
+    //     _id: new ObjectId(bookId),
+    //   });
+    //   if (!userQuery || !bookQuery) {
+    //     res.status(404).json({ error: "Invalid request" });
+    //   }
+    //   const payload = {
+    //     user: userQuery?._id,
+    //     books: bookQuery?._id,
+    //   };
+
+    //   // const newWishList = await
+    //   result = await wishlistCollection.insertOne(userId,bookId);
+
+    //   res.send({
+    //     status: true,
+    //     data: result,
+    //   });
+    // });
+    app.post("/addWishList", async (req, res) => {
+      const { userEmail, book } = req.body;
+      const payload = { userEmail, books: [book] };
+
+      let result;
+      const exist = await wishlistCollection.findOne({ userEmail });
+      if (exist)
+        result = await wishlistCollection.findOneAndUpdate(
+          { userEmail },
+          { $push: { books: book } }
+        );
+      else result = await wishlistCollection.insertOne(payload);
+
+      res.send({
+        status: true,
+        message: "successfully add",
+        data: result,
+      });
     });
   } finally {
   }
