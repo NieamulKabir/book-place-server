@@ -65,8 +65,7 @@ const run = async () => {
 
     //wishlist
     // app.post("/addWishList", async (req, res) => {
-    //   const userId = req.body;
-    //   const bookId = req.body;
+    //   const { userId, bookId } = req.body;
 
     //   const userQuery = await userCollection.findOne({
     //     _id: new ObjectId(userId),
@@ -82,32 +81,57 @@ const run = async () => {
     //     books: bookQuery?._id,
     //   };
 
-    //   // const newWishList = await
-    //   result = await wishlistCollection.insertOne(userId,bookId);
+    //   const newWishlist = await wishlistCollection.insertOne([payload]);
+    //   newWishlistAllData = newWishlist[0];
 
-    //   res.send({
-    //     status: true,
+    //   if (!newWishlist) {
+    //     res.status(404).json({ error: "Invalid request" });
+    //   }
+    //   if (newWishlistAllData) {
+    //     newWishlistAllData = await wishlistCollection.findOne({
+    //       _id: newWishlistAllData._id,
+    //     });
+    //   }
+    //   res.status(200).json({
+    //     success: true,
+    //     message: "successfully add to wishlist!",
     //     data: result,
     //   });
     // });
     app.post("/addWishList", async (req, res) => {
-      const { userEmail, book } = req.body;
-      const payload = { userEmail, books: [book] };
+      const { userId, bookId } = req.body;
+      // const payload = { userId, bookId };
 
-      let result;
-      const exist = await wishlistCollection.findOne({ userEmail });
-      if (exist)
-        result = await wishlistCollection.findOneAndUpdate(
-          { userEmail },
-          { $push: { books: book } }
+      
+      const user = await wishlistCollection.findOne({ userId });
+      const alreadyAdded = user.find((id) => id.toString() === bookId);
+
+      // const exist = await wishlistCollection.findOne({ userId });
+      if (alreadyAdded) {
+        const result = await wishlistCollection.findOneAndUpdate(
+          { userId },
+          { $pull: { books: bookId } },
+          { new: true }
         );
-      else result = await wishlistCollection.insertOne(payload);
+        res.json(result);
+      } else {
+        const result = await wishlistCollection.findOneAndUpdate(
+          { userId },
+          { $push: { books: bookId } },
+          { new: true }
+        );
+        res.json(result);
+      }
+    });
+    app.get("/wishlist/:id", async (req, res) => {
+      const userId = req.params.id;
+      const result = await wishlistCollection.findOne({ userId });
 
-      res.send({
-        status: true,
-        message: "successfully add",
-        data: result,
-      });
+      if (result) {
+        return res.json(result);
+      }
+
+      res.status(404).json({ error: "Book not found" });
     });
   } finally {
   }
