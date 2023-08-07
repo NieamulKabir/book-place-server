@@ -45,10 +45,32 @@ const run = async () => {
         data: result,
       });
     });
-    app.post('/addBook', async (req, res) => {
+    app.post("/addBook", async (req, res) => {
       const book = req.body;
       const result = await bookCollection.insertOne(book);
       res.send(result);
+    });
+
+    app.patch("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: req.body,
+      };
+      const result = await bookCollection.updateOne(query, updateDoc);
+      res.send({
+        status: true,
+        data: result,
+      });
+    });
+    app.delete("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await bookCollection.deleteOne(query);
+      res.send({
+        status: true,
+        data: result,
+      });
     });
 
     //user
@@ -65,6 +87,12 @@ const run = async () => {
     app.get("/users", async (req, res) => {
       const cursor = userCollection.find({});
       const result = await cursor.toArray();
+      res.send({ status: true, data: result });
+    });
+    app.get("/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const result = await userCollection.findOne({ email: email });
+      console.log(result);
       res.send({ status: true, data: result });
     });
 
@@ -107,7 +135,6 @@ const run = async () => {
       const { userId, bookId } = req.body;
       // const payload = { userId, bookId };
 
-      
       const user = await wishlistCollection.findOne({ userId });
       const alreadyAdded = user.find((id) => id.toString() === bookId);
 
